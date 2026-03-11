@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sreeja Digital Saree Printers – Best Digital Printing in Hyderabad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --red: #A01830; --red-dark: #6e1020; --gold: #BF8A2E; --gold-light: #E0B86A;
+      --cream: #FBF5EC; --cream2: #F5EDE0; --dark: #160810; --dark2: #2A1020;
+      --text: #2C1018; --muted: #8A6070; --border: rgba(191,138,46,0.2); --white: #fff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top:0; left:0; right:0; z-index:200; padding:0 5vw; background:rgba(22,8,16,0.95); backdrop-filter:blur(16px); border-bottom:1px solid rgba(191,138,46,0.15); display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-family:'Cormorant Garamond',serif; color:#fff; font-size:1.3rem; font-weight:600; line-height:1.1; text-decoration:none; }
+    .nav-logo small { display:block; font-size:0.55rem; letter-spacing:0.25em; color:var(--gold-light); font-family:'Outfit',sans-serif; font-weight:400; text-transform:uppercase; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:0.82rem; letter-spacing:0.04em; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--gold-light); }
+    .nav-cta { background:var(--red); color:#fff; padding:9px 22px; border-radius:2px; font-size:0.8rem; font-weight:500; letter-spacing:0.06em; text-decoration:none; transition:background 0.2s; }
+    .nav-cta:hover { background:var(--red-dark); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .hamburger span { width:24px; height:2px; background:#fff; border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; top:68px; left:0; right:0; z-index:199; background:var(--dark); padding:24px 5vw; border-top:1px solid rgba(255,255,255,0.06); flex-direction:column; gap:20px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:1rem; }
+
+    /* HERO */
+    #hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .video-bg { position:absolute; inset:0; z-index:0; background:linear-gradient(135deg,#160810 0%,#3a0c20 40%,#8a1528 70%,#BF8A2E 100%); overflow:hidden; }
+    .video-bg::before { content:''; position:absolute; inset:-50%; background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(191,138,46,0.04) 30px,rgba(191,138,46,0.04) 60px); animation:fabricMove 20s linear infinite; }
+    .video-bg::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(160,24,48,0.4) 0%,rgba(22,8,16,0.85) 100%); }
+    @keyframes fabricMove { to { transform:translate(60px,60px); } }
+    .float-elements { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+    .float-el { position:absolute; opacity:0.06; animation:floatUp linear infinite; }
+    @keyframes floatUp { 0%{transform:translateY(110vh) rotate(0deg);opacity:0} 10%{opacity:0.06} 90%{opacity:0.06} 100%{transform:translateY(-10vh) rotate(360deg);opacity:0} }
+    .ticker-wrap { position:absolute; bottom:0; left:0; right:0; z-index:3; background:var(--gold); overflow:hidden; height:42px; display:flex; align-items:center; }
+    .ticker { display:flex; white-space:nowrap; animation:ticker 28s linear infinite; }
+    .ticker-item { padding:0 2rem; font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); }
+    .ticker-item::after { content:' ✦ '; margin-left:2rem; color:var(--red); }
+    @keyframes ticker { to { transform:translateX(-50%); } }
+    .hero-content { position:relative; z-index:2; text-align:center; padding:0 5vw; max-width:920px; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:10px; color:var(--gold-light); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; font-weight:500; margin-bottom:22px; }
+    .hero-eyebrow::before,.hero-eyebrow::after { content:''; width:40px; height:1px; background:var(--gold); }
+    .hero-h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,8vw,6.5rem); font-weight:700; line-height:0.95; color:#fff; margin-bottom:28px; }
+    .hero-h1 em { color:var(--gold-light); font-style:italic; display:block; }
+    .hero-sub { color:rgba(255,255,255,0.65); font-size:clamp(0.95rem,2vw,1.1rem); line-height:1.7; max-width:580px; margin:0 auto 40px; }
+    .hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn-hero-primary { background:var(--red); color:#fff; padding:15px 38px; border-radius:2px; font-size:0.88rem; font-weight:600; letter-spacing:0.08em; text-decoration:none; text-transform:uppercase; transition:all 0.25s; box-shadow:0 0 30px rgba(160,24,48,0.5); }
+    .btn-hero-primary:hover { background:var(--red-dark); transform:translateY(-3px); }
+    .btn-hero-outline { border:1px solid rgba(191,138,46,0.6); color:var(--gold-light); padding:15px 38px; border-radius:2px; font-size:0.88rem; font-weight:500; letter-spacing:0.08em; text-decoration:none; text-transform:uppercase; transition:all 0.25s; }
+    .btn-hero-outline:hover { background:rgba(191,138,46,0.1); }
+    .scroll-hint { position:absolute; bottom:60px; left:50%; transform:translateX(-50%); z-index:3; display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(255,255,255,0.3); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; }
+    .scroll-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:0.3;transform:scale(1)} 50%{opacity:1;transform:scale(1.4)} }
+
+    /* MARQUEE */
+    .marquee-section { background:var(--dark); padding:22px 0; overflow:hidden; }
+    .marquee-track { display:flex; white-space:nowrap; animation:marquee 30s linear infinite; }
+    .marquee-item { padding:0 28px; font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.3); display:flex; align-items:center; gap:28px; }
+    .marquee-item span { color:var(--gold); font-size:0.5rem; }
+    @keyframes marquee { to { transform:translateX(-50%); } }
+
+    /* STATS */
+    .stats-section { background:var(--cream2); padding:60px 5vw; display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--border); }
+    .stat-box { text-align:center; padding:20px; border-right:1px solid var(--border); }
+    .stat-box:last-child { border-right:none; }
+    .stat-num { font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:700; color:var(--red); line-height:1; }
+    .stat-unit { font-size:1.5rem; }
+    .stat-label { font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-top:8px; }
+
+    /* SHARED */
+    .section-wrap { padding:100px 5vw; }
+    .label-row { display:flex; align-items:center; gap:12px; font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:14px; }
+    .label-row::before { content:''; width:36px; height:1.5px; background:var(--gold); flex-shrink:0; }
+    .section-h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; line-height:1.1; }
+    .section-h2 em { color:var(--red); font-style:italic; }
+    .section-p { color:var(--muted); line-height:1.8; font-size:0.95rem; max-width:520px; margin-top:14px; }
+    .gold-line { width:60px; height:2px; background:linear-gradient(90deg,var(--red),var(--gold)); margin:20px 0 40px; }
+    .reveal { opacity:0; transform:translateY(40px); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .reveal.up { opacity:1; transform:none; }
+    .reveal-left { opacity:0; transform:translateX(-40px); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .reveal-left.up { opacity:1; transform:none; }
+    .reveal-right { opacity:0; transform:translateX(40px); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .reveal-right.up { opacity:1; transform:none; }
+
+    /* ABOUT */
+    #about { background:var(--white); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .about-img-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:200px 200px; gap:12px; }
+    .about-img-box { border-radius:4px; overflow:hidden; }
+    .about-img-box:first-child { grid-row:span 2; }
+    .about-img-inner { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; transition:transform 0.4s; }
+    .about-img-box:hover .about-img-inner { transform:scale(1.05); }
+    .ai1 { background:linear-gradient(135deg,#A01830,#6e1020); }
+    .ai2 { background:linear-gradient(135deg,#BF8A2E,#8a5f1a); }
+    .ai3 { background:linear-gradient(135deg,#2A1020,#A01830); }
+    .about-img-inner .em { font-size:2.5rem; }
+    .about-img-inner .lbl { color:rgba(255,255,255,0.7); font-size:0.72rem; letter-spacing:0.1em; }
+    .about-features { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:32px; }
+    .feat-chip { display:flex; align-items:center; gap:10px; background:var(--cream); border:1px solid var(--border); border-radius:4px; padding:12px 16px; font-size:0.82rem; font-weight:500; }
+    .feat-chip .dot { width:8px; height:8px; border-radius:50%; background:var(--red); flex-shrink:0; }
+
+    /* SERVICES */
+    #services { background:var(--dark); }
+    #services .section-h2 { color:#fff; }
+    #services .section-p { color:rgba(255,255,255,0.4); }
+    .services-tabs { display:flex; gap:0; margin-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; }
+    .tab-btn { padding:12px 24px; font-size:0.78rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.4); background:none; border:none; cursor:pointer; transition:color 0.2s; border-bottom:2px solid transparent; margin-bottom:-1px; font-family:'Outfit',sans-serif; }
+    .tab-btn.active { color:var(--gold-light); border-bottom-color:var(--gold); }
+    .tab-content { display:none; }
+    .tab-content.active { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .svc-card { background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); padding:32px 26px; transition:all 0.3s; }
+    .svc-card:hover { background:rgba(160,24,48,0.15); border-color:rgba(160,24,48,0.3); transform:translateY(-4px); }
+    .svc-icon { font-size:2rem; margin-bottom:16px; }
+    .svc-name { font-family:'Cormorant Garamond',serif; color:#fff; font-size:1.25rem; font-weight:600; margin-bottom:10px; }
+    .svc-desc { color:rgba(255,255,255,0.4); font-size:0.82rem; line-height:1.7; }
+    .svc-badge { display:inline-block; margin-top:14px; padding:3px 10px; border-radius:50px; background:rgba(191,138,46,0.12); color:var(--gold-light); font-size:0.68rem; letter-spacing:0.08em; }
+
+    /* WHY */
+    #why { background:var(--cream2); }
+    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .why-card { background:var(--white); border-radius:6px; padding:36px 28px; border:1px solid var(--border); transition:box-shadow 0.3s,transform 0.3s; position:relative; overflow:hidden; }
+    .why-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--red),var(--gold)); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+    .why-card:hover::before { transform:scaleX(1); }
+    .why-card:hover { box-shadow:0 20px 60px rgba(160,24,48,0.1); transform:translateY(-6px); }
+    .why-num { font-family:'Cormorant Garamond',serif; font-size:4rem; font-weight:700; color:rgba(160,24,48,0.07); line-height:1; margin-bottom:12px; }
+    .why-icon { font-size:1.8rem; margin-bottom:14px; }
+    .why-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:700; margin-bottom:10px; }
+    .why-desc { font-size:0.85rem; line-height:1.7; color:var(--muted); }
+
+    /* PROCESS */
+    #process { background:var(--white); }
+    .process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+    .process-steps::before { content:''; position:absolute; top:36px; left:10%; right:10%; height:1px; background:linear-gradient(90deg,transparent,var(--border),var(--gold),var(--border),transparent); }
+    .process-step { text-align:center; padding:20px; }
+    .step-num-wrap { width:72px; height:72px; border-radius:50%; background:var(--cream2); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.8rem; transition:background 0.3s,border-color 0.3s; }
+    .process-step:hover .step-num-wrap { background:var(--red); border-color:var(--red); }
+    .step-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; margin-bottom:8px; }
+    .step-desc { font-size:0.8rem; color:var(--muted); line-height:1.6; }
+
+    /* GALLERY */
+    #gallery { background:var(--dark2); }
+    #gallery .section-h2 { color:#fff; }
+    #gallery .section-p { color:rgba(255,255,255,0.4); }
+    .gallery-masonry { display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:260px 260px; gap:10px; }
+    .g-item { border-radius:4px; overflow:hidden; cursor:pointer; }
+    .g-item:first-child { grid-row:span 2; }
+    .g-inner { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; transition:transform 0.4s; }
+    .g-item:hover .g-inner { transform:scale(1.04); }
+    .gc1 { background:linear-gradient(145deg,#9B1B30,#BF8A2E); }
+    .gc2 { background:linear-gradient(145deg,#2A1020,#9B1B30); }
+    .gc3 { background:linear-gradient(145deg,#BF8A2E,#E0B86A); }
+    .gc4 { background:linear-gradient(145deg,#160810,#6e1020); }
+    .gc5 { background:linear-gradient(145deg,#E0B86A,#BF8A2E); }
+    .g-icon { font-size:3rem; }
+    .g-lbl { color:rgba(255,255,255,0.8); font-size:0.8rem; font-weight:500; letter-spacing:0.1em; }
+    .gallery-note { text-align:center; margin-top:20px; color:rgba(255,255,255,0.25); font-size:0.8rem; }
+
+    /* TESTIMONIALS */
+    #testimonials { background:var(--cream2); }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .testi-card { background:var(--white); border-radius:6px; padding:36px 30px; border:1px solid var(--border); position:relative; transition:box-shadow 0.3s; }
+    .testi-card:hover { box-shadow:0 16px 50px rgba(160,24,48,0.1); }
+    .quote-mark { font-family:'Cormorant Garamond',serif; font-size:6rem; line-height:0.7; color:var(--gold); opacity:0.15; position:absolute; top:14px; right:20px; }
+    .testi-stars { color:var(--gold); font-size:0.9rem; margin-bottom:16px; letter-spacing:2px; }
+    .testi-text { font-size:0.88rem; line-height:1.8; color:var(--text); margin-bottom:22px; }
+    .testi-foot { display:flex; align-items:center; gap:14px; }
+    .testi-av { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--red),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .testi-name { font-weight:600; font-size:0.88rem; }
+    .testi-loc { font-size:0.75rem; color:var(--muted); }
+
+    /* CTA BAND */
+    .cta-band { background:linear-gradient(135deg,var(--red-dark),var(--red) 50%,#C8922A); padding:80px 5vw; text-align:center; position:relative; overflow:hidden; }
+    .cta-band::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L80 40L40 80L0 40z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E"); }
+    .cta-band h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.5rem); color:#fff; font-weight:700; margin-bottom:16px; position:relative; }
+    .cta-band p { color:rgba(255,255,255,0.75); font-size:1rem; margin-bottom:36px; position:relative; }
+    .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
+    .btn-cta-white { background:#fff; color:var(--red); padding:15px 36px; border-radius:2px; font-size:0.88rem; font-weight:600; letter-spacing:0.06em; text-decoration:none; text-transform:uppercase; transition:all 0.2s; }
+    .btn-cta-white:hover { background:var(--cream); transform:translateY(-2px); }
+    .btn-cta-ghost { border:2px solid rgba(255,255,255,0.5); color:#fff; padding:15px 36px; border-radius:2px; font-size:0.88rem; font-weight:500; text-decoration:none; text-transform:uppercase; letter-spacing:0.06em; transition:all 0.2s; }
+    .btn-cta-ghost:hover { background:rgba(255,255,255,0.1); }
+
+    /* CONTACT */
+    #contact { background:var(--white); }
+    .contact-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; }
+    .contact-detail { display:flex; gap:16px; margin-bottom:28px; align-items:flex-start; }
+    .cd-icon { width:46px; height:46px; border-radius:6px; background:rgba(160,24,48,0.07); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .cd-label { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+    .cd-val { font-weight:500; font-size:0.95rem; }
+    .wa-btn { display:inline-flex; align-items:center; gap:10px; background:#25D366; color:#fff; padding:13px 28px; border-radius:3px; font-size:0.85rem; font-weight:600; text-decoration:none; margin-top:8px; transition:background 0.2s; }
+    .wa-btn:hover { background:#1ebe5b; }
+    .cform { display:flex; flex-direction:column; gap:16px; }
+    .cform-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .cform label { font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; display:block; font-weight:500; }
+    .cform input,.cform textarea,.cform select { width:100%; padding:13px 16px; background:var(--cream); border:1.5px solid var(--border); border-radius:3px; font-family:'Outfit',sans-serif; font-size:0.88rem; color:var(--text); outline:none; transition:border-color 0.2s; resize:vertical; }
+    .cform input:focus,.cform textarea:focus,.cform select:focus { border-color:var(--red); background:#fff; }
+    .form-submit { background:var(--red); color:#fff; padding:15px 36px; border:none; border-radius:3px; font-family:'Outfit',sans-serif; font-size:0.88rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; align-self:flex-start; }
+    .form-submit:hover { background:var(--red-dark); transform:translateY(-2px); }
+    .form-success { display:none; background:rgba(160,24,48,0.05); border:1px solid var(--red); border-radius:4px; padding:18px; text-align:center; color:var(--red); font-size:0.9rem; }
+
+    /* FOOTER */
+    footer { background:var(--dark); color:rgba(255,255,255,0.4); }
+    .footer-top { padding:60px 5vw; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .footer-brand-name { font-family:'Cormorant Garamond',serif; color:#fff; font-size:1.3rem; font-weight:600; }
+    .footer-brand-sub { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-light); margin:4px 0 14px; }
+    .footer-desc { font-size:0.8rem; line-height:1.7; max-width:280px; }
+    .footer-col-title { color:rgba(255,255,255,0.7); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; margin-bottom:18px; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.8rem; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--gold-light); }
+    .footer-bottom { padding:20px 5vw; display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; flex-wrap:wrap; gap:10px; }
+
+    @media(max-width:900px){
+      .nav-links{display:none} .hamburger{display:flex}
+      .stats-section{grid-template-columns:repeat(2,1fr)}
+      .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+      .tab-content.active{grid-template-columns:1fr}
+      .why-grid,.testi-grid{grid-template-columns:1fr}
+      .process-steps{grid-template-columns:1fr 1fr} .process-steps::before{display:none}
+      .gallery-masonry{grid-template-columns:1fr 1fr;grid-template-rows:auto} .g-item:first-child{grid-row:span 1}
+      .footer-top{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){
+      .stats-section{grid-template-columns:1fr 1fr}
+      .process-steps{grid-template-columns:1fr}
+      .cform-row{grid-template-columns:1fr}
+      .footer-top{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Sreeja Digital<small>Saree Printers · Hyderabad</small></a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:14px">
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">About Us</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO (Animated video-style background) -->
+<section id="hero">
+  <div class="video-bg"><div class="float-elements" id="floatEl"></div></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">Hyderabad's Premier Digital Printers</div>
+    <h1 class="hero-h1 reveal">Print Your <em>Vision on Fabric</em></h1>
+    <p class="hero-sub reveal">Premium digital saree & cloth printing with vibrant colours, sharp details and unmatched quality. Serving boutiques, designers & individuals across Hyderabad.</p>
+    <div class="hero-btns reveal">
+      <a href="#contact" class="btn-hero-primary">Get a Free Quote</a>
+      <a href="#services" class="btn-hero-outline">Explore Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-dot"></div>Scroll</div>
+  <div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+</section>
+
+<div class="marquee-section"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<div class="stats-section">
+  <div class="stat-box reveal"><div class="stat-num">500<span class="stat-unit">+</span></div><div class="stat-label">Happy Customers</div></div>
+  <div class="stat-box reveal"><div class="stat-num">10<span class="stat-unit">+</span></div><div class="stat-label">Years Experience</div></div>
+  <div class="stat-box reveal"><div class="stat-num">5000<span class="stat-unit">+</span></div><div class="stat-label">Sarees Printed</div></div>
+  <div class="stat-box reveal"><div class="stat-num">100<span class="stat-unit">%</span></div><div class="stat-label">Quality Assured</div></div>
+</div>
+
+<section id="about">
+  <div class="section-wrap">
+    <div class="about-grid">
+      <div class="about-img-grid reveal-left">
+        <div class="about-img-box"><div class="about-img-inner ai1"><div class="em">🥻</div><div class="lbl">Silk Sarees</div></div></div>
+        <div class="about-img-box"><div class="about-img-inner ai2"><div class="em">🎨</div><div class="lbl">Custom Designs</div></div></div>
+        <div class="about-img-box"><div class="about-img-inner ai3"><div class="em">🖨️</div><div class="lbl">Digital Printing</div></div></div>
+      </div>
+      <div class="reveal-right">
+        <div class="label-row">About Us</div>
+        <h2 class="section-h2">Crafting <em>Beautiful</em> Prints in Hyderabad</h2>
+        <div class="gold-line"></div>
+        <p class="section-p">Sreeja Digital Saree Printers, run by <strong>Muralidhar</strong>, is a trusted digital cloth printing studio in Hyderabad. We blend traditional Indian textile art with state-of-the-art digital printing technology to deliver stunning, colour-fast prints on sarees and all types of fabrics.</p>
+        <p class="section-p" style="margin-top:14px">Whether you're a boutique owner, fashion designer, or ordering for a personal occasion — we deliver precision, vibrancy, and quality on every metre of fabric.</p>
+        <div class="about-features">
+          <div class="feat-chip"><span class="dot"></span>Premium Fabric Quality</div>
+          <div class="feat-chip"><span class="dot"></span>Bulk Order Specialists</div>
+          <div class="feat-chip"><span class="dot"></span>Colour-Fast Prints</div>
+          <div class="feat-chip"><span class="dot"></span>Fast Turnaround</div>
+          <div class="feat-chip"><span class="dot"></span>Custom Designs Welcome</div>
+          <div class="feat-chip"><span class="dot"></span>Hyderabad Based</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:50px" class="reveal">
+      <div class="label-row" style="justify-content:center">What We Offer</div>
+      <h2 class="section-h2">Our <em>Printing</em> Services</h2>
+      <p class="section-p" style="margin:14px auto 0">From classic sarees to modern fabrics — we print everything with precision.</p>
+    </div>
+    <div class="services-tabs reveal">
+      <button class="tab-btn active" onclick="switchTab('saree',this)">Saree Printing</button>
+      <button class="tab-btn" onclick="switchTab('fabric',this)">Fabric Printing</button>
+      <button class="tab-btn" onclick="switchTab('custom',this)">Custom & Occasions</button>
+    </div>
+    <div class="tab-content active" id="tab-saree">
+      <div class="svc-card"><div class="svc-icon">🥻</div><div class="svc-name">Digital Saree Printing</div><div class="svc-desc">Vibrant digital printing on silk, georgette, chiffon, crepe & cotton sarees. Sharp motifs that stay bright through every wash.</div><span class="svc-badge">Most Popular</span></div>
+      <div class="svc-card"><div class="svc-icon">✨</div><div class="svc-name">Pattu Saree Printing</div><div class="svc-desc">Specialty printing on Pochampally, Kanchi, Gadwal & Dharmavaram pattu sarees with intricate traditional patterns.</div><span class="svc-badge">Premium</span></div>
+      <div class="svc-card"><div class="svc-icon">🌸</div><div class="svc-name">Kalamkari & Floral</div><div class="svc-desc">Authentic Kalamkari, Bandhani, Ajrakh, Tanjore and floral motif printing for traditional saree collections.</div><span class="svc-badge">Traditional</span></div>
+    </div>
+    <div class="tab-content" id="tab-fabric">
+      <div class="svc-card"><div class="svc-icon">🧵</div><div class="svc-name">All Fabric Types</div><div class="svc-desc">We print on silk, cotton, georgette, crepe, organza, chanderi, linen & blended fabrics. Bring us any cloth.</div><span class="svc-badge">All Materials</span></div>
+      <div class="svc-card"><div class="svc-icon">👗</div><div class="svc-name">Dress Material Printing</div><div class="svc-desc">Custom prints on dress materials, dupattas, half sarees & suit fabrics. Perfect for boutiques & designers.</div><span class="svc-badge">Wholesale</span></div>
+      <div class="svc-card"><div class="svc-icon">📦</div><div class="svc-name">Bulk Fabric Printing</div><div class="svc-desc">Large-scale printing for textile businesses, manufacturers & exporters. Competitive pricing with consistent quality.</div><span class="svc-badge">Bulk Orders</span></div>
+    </div>
+    <div class="tab-content" id="tab-custom">
+      <div class="svc-card"><div class="svc-icon">✏️</div><div class="svc-name">Custom Design Printing</div><div class="svc-desc">Bring your own design or let us create one. We print your exact vision on any fabric with precision.</div><span class="svc-badge">Your Design</span></div>
+      <div class="svc-card"><div class="svc-icon">💍</div><div class="svc-name">Wedding & Event Prints</div><div class="svc-desc">Matching family sets, bridal sarees, function wear — special prints crafted beautifully for your big occasions.</div><span class="svc-badge">Occasions</span></div>
+      <div class="svc-card"><div class="svc-icon">🎁</div><div class="svc-name">Corporate & Gift Orders</div><div class="svc-desc">Branded sarees, gifting collections and corporate event fabric printing with personalised touches.</div><span class="svc-badge">Corporate</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:60px" class="reveal">
+      <div class="label-row" style="justify-content:center">Why Choose Us</div>
+      <h2 class="section-h2">The Sreeja <em>Difference</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-num">01</div><div class="why-icon">🖨️</div><div class="why-title">Advanced Digital Technology</div><div class="why-desc">State-of-the-art digital printers producing ultra-sharp details and vivid, true-to-design colours on every fabric type.</div></div>
+      <div class="why-card reveal"><div class="why-num">02</div><div class="why-icon">🎨</div><div class="why-title">Colour Accuracy</div><div class="why-desc">Precise colour matching ensures your design looks exactly as intended — from screen to fabric, every single time.</div></div>
+      <div class="why-card reveal"><div class="why-num">03</div><div class="why-icon">⚡</div><div class="why-title">Fast Turnaround</div><div class="why-desc">Quick delivery without compromising quality. We respect your deadlines for personal and bulk production orders alike.</div></div>
+      <div class="why-card reveal"><div class="why-num">04</div><div class="why-icon">💰</div><div class="why-title">Affordable Pricing</div><div class="why-desc">Premium quality at competitive prices. Special rates for bulk orders, boutiques and repeat customers.</div></div>
+      <div class="why-card reveal"><div class="why-num">05</div><div class="why-icon">🤝</div><div class="why-title">Personal Consultation</div><div class="why-desc">Work directly with Muralidhar to select fabrics, review proofs, and get expert advice on design choices.</div></div>
+      <div class="why-card reveal"><div class="why-num">06</div><div class="why-icon">✅</div><div class="why-title">Quality Guaranteed</div><div class="why-desc">Every piece is inspected before delivery. Colour-fast, wash-resistant prints that last as long as your fabric.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:70px" class="reveal">
+      <div class="label-row" style="justify-content:center">How It Works</div>
+      <h2 class="section-h2">Our <em>Simple</em> Process</h2>
+      <p class="section-p" style="margin:14px auto 0">From enquiry to delivery — here's how easy it is to work with us.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal"><div class="step-num-wrap">📞</div><div class="step-title">1. Enquire</div><div class="step-desc">Call or WhatsApp us with your requirements — fabric type, design, and quantity.</div></div>
+      <div class="process-step reveal"><div class="step-num-wrap">🎨</div><div class="step-title">2. Design</div><div class="step-desc">Share your design file or work with us to create the perfect motif for your fabric.</div></div>
+      <div class="process-step reveal"><div class="step-num-wrap">🖨️</div><div class="step-title">3. Print</div><div class="step-desc">We print using advanced digital technology with strict quality checks at every step.</div></div>
+      <div class="process-step reveal"><div class="step-num-wrap">🚚</div><div class="step-title">4. Deliver</div><div class="step-desc">Receive your beautifully printed sarees or fabric — on time, every time.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:50px" class="reveal">
+      <div class="label-row" style="justify-content:center">Our Work</div>
+      <h2 class="section-h2">Print <em>Gallery</em></h2>
+      <p class="section-p" style="margin:14px auto 0">A glimpse of the stunning prints we create every day for our customers.</p>
+    </div>
+    <div class="gallery-masonry reveal">
+      <div class="g-item"><div class="g-inner gc1"><div class="g-icon">🥻</div><div class="g-lbl">Silk Saree Collection</div></div></div>
+      <div class="g-item"><div class="g-inner gc2"><div class="g-icon">🌸</div><div class="g-lbl">Floral Prints</div></div></div>
+      <div class="g-item"><div class="g-inner gc3"><div class="g-icon">✨</div><div class="g-lbl">Gold Motifs</div></div></div>
+      <div class="g-item"><div class="g-inner gc4"><div class="g-icon">👗</div><div class="g-lbl">Dress Materials</div></div></div>
+      <div class="g-item"><div class="g-inner gc5"><div class="g-icon">🧵</div><div class="g-lbl">Custom Designs</div></div></div>
+    </div>
+    <p class="gallery-note">📸 Replace these with real photos of your work — they'll make a huge difference!</p>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="section-wrap">
+    <div style="text-align:center;margin-bottom:60px" class="reveal">
+      <div class="label-row" style="justify-content:center">Customer Reviews</div>
+      <h2 class="section-h2">What Our <em>Clients</em> Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal"><div class="quote-mark">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">The quality of printing is absolutely amazing! My sarees came out with such vibrant colours. Muralidhar sir is very professional and always delivers on time. Highly recommended!</p><div class="testi-foot"><div class="testi-av">👩</div><div><div class="testi-name">Lakshmi Priya</div><div class="testi-loc">Hyderabad</div></div></div></div>
+      <div class="testi-card reveal"><div class="quote-mark">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">I placed a bulk order for my boutique and the results were outstanding. Clean prints, fast delivery and great wholesale pricing. My customers loved every piece. Will definitely order again!</p><div class="testi-foot"><div class="testi-av">👨</div><div><div class="testi-name">Ravi Kumar</div><div class="testi-loc">Secunderabad</div></div></div></div>
+      <div class="testi-card reveal"><div class="quote-mark">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">Got custom wedding sarees printed for my entire family. The design came out exactly as I imagined. The team was very helpful in guiding design choices. Excellent, excellent work!</p><div class="testi-foot"><div class="testi-av">👩</div><div><div class="testi-name">Sunitha Reddy</div><div class="testi-loc">Hyderabad</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2 class="reveal">Ready to Print Your <em>Dream Design?</em></h2>
+  <p class="reveal">Contact Muralidhar today for a free consultation and quote. All fabric types, all order sizes welcome.</p>
+  <div class="cta-btns reveal">
+    <a href="tel:+919247350908" class="btn-cta-white">📞 Call: 92473 50908</a>
+    <a href="https://wa.me/919247350908" target="_blank" class="btn-cta-ghost">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="section-wrap">
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="label-row">Get In Touch</div>
+        <h2 class="section-h2">Let's Create <em>Together</em></h2>
+        <div class="gold-line"></div>
+        <p class="section-p">Ready to get your fabrics printed? Reach out for a free quote. We welcome inquiries for all order sizes — from a single saree to large bulk fabric orders.</p>
+        <div style="margin-top:36px">
+          <div class="contact-detail"><div class="cd-icon">📞</div><div><div class="cd-label">Phone / WhatsApp</div><div class="cd-val">+91 92473 50908 (Muralidhar)</div></div></div>
+          <div class="contact-detail"><div class="cd-icon">📍</div><div><div class="cd-label">Location</div><div class="cd-val">Hyderabad, Telangana, India</div></div></div>
+          <div class="contact-detail"><div class="cd-icon">🕐</div><div><div class="cd-label">Working Hours</div><div class="cd-val">Monday – Saturday: 9 AM – 7 PM</div></div></div>
+        </div>
+        <a href="https://wa.me/919247350908" target="_blank" class="wa-btn">💬 Chat on WhatsApp</a>
+      </div>
+      <div class="reveal-right">
+        <div id="formSuccess" class="form-success">✅ Thank you! We've received your inquiry and will contact you shortly.</div>
+        <form class="cform" id="cform" onsubmit="submitForm(event)">
+          <div class="cform-row">
+            <div><label>Your Name *</label><input type="text" placeholder="Full name" required/></div>
+            <div><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required/></div>
+          </div>
+          <div><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+          <div><label>Service Required</label>
+            <select><option value="">Select a service…</option><option>Digital Saree Printing</option><option>Pattu Saree Printing</option><option>Dress Material Printing</option><option>Bulk Fabric Printing</option><option>Custom Design Printing</option><option>Wedding / Occasion Prints</option><option>Other</option></select>
+          </div>
+          <div><label>Fabric Type</label><input type="text" placeholder="e.g. Silk, Georgette, Cotton, Crepe…"/></div>
+          <div><label>Order Details</label><textarea rows="4" placeholder="Describe your requirements — quantity, design ideas, special requests…"></textarea></div>
+          <button type="submit" class="form-submit">Send Inquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Sreeja Digital Saree Printers</div>
+      <div class="footer-brand-sub">Hyderabad, India</div>
+      <p class="footer-desc">Premium digital cloth printing for sarees & fabrics. Vibrant colours, sharp details, and unmatched quality — crafted with passion in Hyderabad.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links"><li><a href="#hero">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links"><li><a href="#services">Saree Printing</a></li><li><a href="#services">Pattu Sarees</a></li><li><a href="#services">Dress Materials</a></li><li><a href="#services">Bulk Printing</a></li><li><a href="#services">Custom Designs</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links"><li><a href="tel:+919247350908">+91 92473 50908</a></li><li><a href="https://wa.me/919247350908">WhatsApp Us</a></li><li style="color:rgba(255,255,255,0.3);font-size:0.8rem">Hyderabad, Telangana</li><li style="color:rgba(255,255,255,0.3);font-size:0.8rem">Mon–Sat: 9AM – 7PM</li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Sreeja Digital Saree Printers. All rights reserved.</span><span>Hyderabad, Telangana, India</span></div>
+</footer>
+
+<script>
+  // Floating hero elements
+  const emojis=['🥻','🎨','✨','🌸','🧵','💎'];
+  const fe=document.getElementById('floatEl');
+  for(let i=0;i<18;i++){const el=document.createElement('div');el.className='float-el';el.textContent=emojis[i%emojis.length];el.style.left=Math.random()*100+'%';el.style.animationDuration=(12+Math.random()*20)+'s';el.style.animationDelay=(Math.random()*15)+'s';el.style.fontSize=(2+Math.random()*3)+'rem';fe.appendChild(el);}
+
+  // Ticker
+  const ti=['Digital Saree Printing','Silk & Georgette','Custom Designs','Bulk Orders','Fast Delivery','Hyderabad'];
+  const t=document.getElementById('ticker');
+  [...ti,...ti].forEach(x=>{const d=document.createElement('div');d.className='ticker-item';d.textContent=x;t.appendChild(d);});
+
+  // Marquee
+  const mi=['Sreeja Digital Saree Printers','Premium Cloth Printing','Hyderabad','Sarees & Fabrics','Vibrant Colours','Custom Designs'];
+  const mt=document.getElementById('marqueeTrack');
+  [...mi,...mi,...mi,...mi].forEach(x=>{const d=document.createElement('div');d.className='marquee-item';d.innerHTML=x+'<span>✦</span>';mt.appendChild(d);});
+
+  // Scroll reveal
+  const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up');});},{threshold:0.1});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
+
+  // Tabs
+  function switchTab(id,btn){
+    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('tab-'+id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Mobile menu
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
+  // Form
+  function submitForm(e){e.preventDefault();document.getElementById('cform').style.display='none';document.getElementById('formSuccess').style.display='block';}
+
+  // Counter animation
+  function animateCounters(){
+    document.querySelectorAll('.stat-num').forEach(el=>{
+      const txt=el.textContent;
+      const target=parseInt(txt);
+      if(isNaN(target))return;
+      const unit=el.querySelector('.stat-unit')?.textContent||'';
+      let s=0,step=target/60;
+      const timer=setInterval(()=>{s=Math.min(s+step,target);el.innerHTML=Math.floor(s)+'<span class="stat-unit">'+unit+'</span>';if(s>=target)clearInterval(timer);},25);
+    });
+  }
+  const so=new IntersectionObserver((e)=>{if(e[0].isIntersecting){animateCounters();so.disconnect();}},{threshold:0.5});
+  so.observe(document.querySelector('.stats-section'));
+</script>
+</body>
+</html>
